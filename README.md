@@ -31,7 +31,7 @@ bot = telegram.Bot(token=telegram_token, request = telegram_proxy)
 
 
 #### Environment variables
-This script needs some environment variables for correct work. Create file .env in the same directory, where project_status.py located and specify `DEVMAN_TOKEN`, `TELEGRAM_BOT_TOKEN`, `SOCKS5_LOGIN`, `SOCKS5_PASSWORD`, `SOCKS5_SERVER_URL`, `TELEGRAM_CHAT_ID` veriables.
+This script needs some environment variables for correct work. Create file .env in the same directory, where project_status.py located and specify `DEVMAN_TOKEN`, `TELEGRAM_BOT_TOKEN`, `SOCKS5_LOGIN`, `SOCKS5_PASSWORD`, `SOCKS5_SERVER_URL`, `TELEGRAM_CHAT_ID` variables.
 
 
 #### Purpose of project
