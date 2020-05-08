@@ -1,8 +1,8 @@
 ## Check DevMan project status
 This project creates telegram bot which notifies when your project is checked by DevMav expert.
 
-#### Dependences
-You need Python3 interpreter to use this script. All needed dependences are included in requirements.txt file. Use 
+#### Dependencies
+You need Python3 interpreter to use this script. All needed dependencies are included in requirements.txt file. Use 
 ```
 pip install -r requirements.txt
 ```
@@ -24,23 +24,15 @@ and replace
 ``` 
 bot = telegram.Bot(token=telegram_token) 
 ```
-isntead of 
+instead of 
 ```
 bot = telegram.Bot(token=telegram_token, request = telegram_proxy)
 ```
 
 
 #### Environment variables
-This script needs some environment variables for correct work. Create file .env in the same directory, where project_status.py located with such content:
-``` 
-DEVMAN_TOKEN = <your personal token> on [Devman](https://dvmn.org/api/docs/)
-TELEGRAM_BOT_TOKEN = <your telegram bot token>
-SOCKS5_LOGIN = <login of your socks5 servers> (if exists)
-SOCKS5_PASSWORD = <password of your socks5 server> (if exists)
-SOCKS5_SERVER_URL = <your socks5 server url:port> (if exists)
-CHAT_ID = <yout telegram chat_id> 
-```
+This script needs some environment variables for correct work. Create file .env in the same directory, where project_status.py located and specify `DEVMAN_TOKEN`, `TELEGRAM_BOT_TOKEN`, `SOCKS5_LOGIN`, `SOCKS5_PASSWORD`, `SOCKS5_SERVER_URL`, `TELEGRAM_CHAT_ID` veriables.
 
 
 #### Purpose of project
-This script was performed as a part of API web-services cource by [Devman](https://dvmn.org/modules)
+This script was performed as a part of API web-services course by [Devman](https://dvmn.org/modules)
