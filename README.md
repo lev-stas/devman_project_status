@@ -16,19 +16,11 @@ python project_status.py &
 Use `python3` instead `python` if you have both python2 and python3 versions.
 When you run project_status.py, it will work until your server power off or until you`ll kill a process. It will send you messages in telegram every time, your project status changes.
 
-This script allows to use telegram bot even in case telegram is blocked in your country. To make it work you need socks5 server. If telegram is not blocked in your country, you can remove 
-``` 
-telegram_proxy = telegram.utils.request.Request(proxy_url=f'socks5h://{proxy_login}:{proxy_password}@{proxy_url}') 
+This script allows to use telegram bot even in case telegram is blocked in your country. If you have credentials from socks5 server, run `project_statys.py` and give to it socks5 server url with port number, your login and password on this socks5 server as arguments
 ```
-and replace
-``` 
-bot = telegram.Bot(token=telegram_token) 
+python project_statys.py XXX.XXX.XXX.XXX:1080 login password &
 ```
-instead of 
-```
-bot = telegram.Bot(token=telegram_token, request = telegram_proxy)
-```
-
+Use `python3` instead `python` if you have both python2 and python3 versions.
 
 #### Environment variables
 This script needs some environment variables for correct work. Create file .env in the same directory, where project_status.py located and specify `DEVMAN_TOKEN`, `TELEGRAM_BOT_TOKEN`, `SOCKS5_LOGIN`, `SOCKS5_PASSWORD`, `SOCKS5_SERVER_URL`, `TELEGRAM_CHAT_ID` variables.
