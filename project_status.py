@@ -36,9 +36,9 @@ def check_project_status(url, headers, bot, chat_id):
 
 if __name__ == '__main__':
     load_dotenv()
-    devman_token = os.getenv('DEVMAN_TOKEN')
-    telegram_token = os.getenv('TELEGRAM_BOT_TOKEN')
-    telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID')
+    devman_token = os.environ['DEVMAN_TOKEN']
+    telegram_token = os.environ['TELEGRAM_BOT_TOKEN']
+    telegram_chat_id = os.environ['TELEGRAM_CHAT_ID']
 
     parser = argparse.ArgumentParser(description='Check project status on devman resource')
     parser.add_argument('-u', '--socks5_url', help='enter yor proxy server url')
