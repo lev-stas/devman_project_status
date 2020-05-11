@@ -71,5 +71,5 @@ if __name__ == '__main__':
     while True:
         try:
             check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id)
-        except as error:
+        except Exception as error:
             t_logger.error(error, exc_info=True)
