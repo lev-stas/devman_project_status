@@ -65,7 +65,6 @@ if __name__ == '__main__':
 
     t_logger = logging.getLogger('Telegram logger')
     t_logger.addHandler(MyLogsHandler())
-    
 
     devman_api_headers = {'Authorization': f'Token {devman_token}'}
 
