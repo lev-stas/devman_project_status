@@ -9,7 +9,7 @@ import logging
 DEVMAN_API_URL = 'https://dvmn.org/api/long_polling/'
 
 
-def check_project_status(url, headers, bot, chat_id):
+def check_project_status(url, headers, bot, chat_id, logger):
     params = {}
     while True:
         try:
@@ -29,10 +29,8 @@ def check_project_status(url, headers, bot, chat_id):
                     message_text = f'Преподаватель проверил проект "{lesson_title}". Проект принят.'
                 bot.send_message(chat_id=chat_id, text=message_text)
 
-        except requests.exceptions.ReadTimeout:
-            continue
-
-        except requests.exceptions.ConnectionError:
+        except Exception as error:
+            logger.error(error, exc_info=True)
             continue
 
 if __name__ == '__main__':
@@ -68,8 +66,5 @@ if __name__ == '__main__':
 
     devman_api_headers = {'Authorization': f'Token {devman_token}'}
 
-    while True:
-        try:
-            check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id)
-        except Exception as error:
-            t_logger.error(error, exc_info=True)
+    check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id, t_logger)
+        
