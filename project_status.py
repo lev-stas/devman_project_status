@@ -9,8 +9,8 @@ import logging
 DEVMAN_API_URL = 'https://dvmn.org/api/long_polling/'
 
 
-def check_project_status(url, headers, bot, chat_id):
-    logging.warning('Бот запущен')
+def check_project_status(url, headers, bot, chat_id, logger):
+    logger.warning('Бот запущен')
     params = {}
     while True:
         try:
@@ -59,7 +59,15 @@ if __name__ == '__main__':
     else:
         t_bot = telegram.Bot(token=telegram_token)
 
+    class MyLogsHandler(logging.Handler):
+        def emit(self, record):
+            log_entry = self.format(record)
+            t_bot.send_message(chat_id=telegram_chat_id, text=record)
+
+    t_logger = logging.getLogger('Telegram logger')
+    t_logger.addHandler(MyLogsHandler())
+
     devman_api_headers = {'Authorization': f'Token {devman_token}'}
 
-    check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id)
+    check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id, t_logger)
 
