@@ -9,9 +9,8 @@ import logging
 DEVMAN_API_URL = 'https://dvmn.org/api/long_polling/'
 
 
-def check_project_status(url, headers, bot, chat_id, logger):
+def check_project_status(url, headers, bot, chat_id):
     params = {}
-    logger.info('Start bot!')
     while True:
         try:
             response = requests.get(url, headers=headers, params=params)
@@ -71,5 +70,8 @@ if __name__ == '__main__':
 
     devman_api_headers = {'Authorization': f'Token {devman_token}'}
 
-    check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id, t_logger)
-
+    try:
+        0/0
+        check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id)
+    except ZeroDivisionError as error:
+        t_logger.error(error, exc_info=True)
