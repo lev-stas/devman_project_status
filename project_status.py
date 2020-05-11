@@ -4,11 +4,13 @@ from dotenv import load_dotenv
 import os
 import time
 import argparse
+import logging
 
 DEVMAN_API_URL = 'https://dvmn.org/api/long_polling/'
 
 
 def check_project_status(url, headers, bot, chat_id):
+    logging.warning('Бот запущен')
     params = {}
     while True:
         try:
