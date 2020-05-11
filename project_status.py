@@ -61,11 +61,12 @@ if __name__ == '__main__':
     class MyLogsHandler(logging.Handler):
         def emit(self, record):
             log_entry = self.format(record)
-            t_bot.send_message(chat_id=telegram_chat_id, text=record)
+            t_bot.send_message(chat_id=telegram_chat_id, text=log_entry)
 
     t_logger = logging.getLogger('Telegram logger')
+    t_logger.setLevel(logging.INFO)
     t_logger.addHandler(MyLogsHandler())
-    t_logger.warning('Start bot!')
+    t_logger.info('Start bot!')
 
     devman_api_headers = {'Authorization': f'Token {devman_token}'}
 
