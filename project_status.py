@@ -64,14 +64,13 @@ if __name__ == '__main__':
             t_bot.send_message(chat_id=telegram_chat_id, text=log_entry)
 
     t_logger = logging.getLogger('Telegram logger')
-    t_logger.setLevel(logging.INFO)
     t_logger.addHandler(MyLogsHandler())
     
 
     devman_api_headers = {'Authorization': f'Token {devman_token}'}
 
-    try:
-        0/0
-        check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id)
-    except ZeroDivisionError as error:
-        t_logger.error(error, exc_info=True)
+    while True:
+        try:
+            check_project_status(DEVMAN_API_URL, devman_api_headers, t_bot, telegram_chat_id)
+        except as error:
+            t_logger.error(error, exc_info=True)
