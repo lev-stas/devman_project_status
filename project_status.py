@@ -11,6 +11,7 @@ DEVMAN_API_URL = 'https://dvmn.org/api/long_polling/'
 
 def check_project_status(url, headers, bot, chat_id, logger):
     params = {}
+    connection_attempt = 0
     while True:
         try:
             response = requests.get(url, headers=headers, params=params)
@@ -28,9 +29,21 @@ def check_project_status(url, headers, bot, chat_id, logger):
                 else:
                     message_text = f'Преподаватель проверил проект "{lesson_title}". Проект принят.'
                 bot.send_message(chat_id=chat_id, text=message_text)
+                connection_attempt = 0
 
-        except Exception as error:
-            logger.error(error, exc_info=True)
+        except requests.ReadTimeout as timeout_error:
+            continue
+        except requests.ConnectionError as connection_error:
+            if connection_attempt > 20:
+                time.sleep(3600)
+            elif connection_attempt > 10:
+                time.sleep(300)
+            elif connection_attempt > 3:
+                time.sleep(60)
+            logger.error(connection_error, exc_info=True)
+            connection_attempt += 1
+            continue
+
             continue
 
 if __name__ == '__main__':
