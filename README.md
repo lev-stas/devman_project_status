@@ -42,7 +42,7 @@ When you run project_status.py, it will work until your server power off or unti
 
 This script allows to use telegram bot even in case telegram is blocked in your country. If you have credentials from socks5 server, run `project_statys.py` and give to it socks5 server url with port number, your login and password on this socks5 server as arguments:
 ```
-python project_statys.py XXX.XXX.XXX.XXX:1080 login password &
+python project_status.py XXX.XXX.XXX.XXX:1080 login password &
 ```
 
 #### Purpose of project
