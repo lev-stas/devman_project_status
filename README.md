@@ -11,7 +11,7 @@ If you see `python2.X` version, check if you have python3 version, typing in you
 python3 --version
 ```
 If you don't have python3 install it. All necessary information about how to install it on your operating system you can find on [python official page](https://www.python.org)
-Also, you need pip packet manager to install python libraries. You can find information about pip and how to install it on [pip documntation](https://pip.pypa.io/en/stable/installing/). 
+Also, you need pip packet manager to install python libraries. You can find information about pip and how to install it in [pip documntation](https://pip.pypa.io/en/stable/installing/). 
 
 To prepare work environment open terminal, clone `devman_project_status` repository and go to the repository directory typing:
 ```
