@@ -34,7 +34,7 @@ pip install -r requirements.txt
 This script needs some environment variables for correct work. Create file `.env` in the same directory, where `project_status.py` is located and specify `DEVMAN_TOKEN`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` variables.
 
 #### Usage
-To run this script, type in consoled:
+To run this script, type in console:
 ```
 python project_status.py &
 ```
